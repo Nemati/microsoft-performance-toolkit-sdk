@@ -584,6 +584,13 @@ namespace Microsoft.Performance.Toolkit.Engine
                 return this;
             }
 
+            public ITableBuilderWithRowCount AddColumnWithAggregation(IDataColumnWithAggregation column)
+            {
+                this.columns.Add(column);
+
+                return this;
+            }
+
             public ITableBuilderWithRowCount ReplaceColumn(IDataColumn oldColumn, IDataColumn newColumn)
             {
                 this.columns.Remove(oldColumn);

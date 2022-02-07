@@ -53,6 +53,12 @@ namespace Microsoft.Performance.SDK.Processing
         /// <summary>
         ///     The weighted average of the values.
         /// </summary>
-        WeightedAverage
+        WeightedAverage,
+
+        /// <summary>
+        ///     The P50 percentile of the values.
+        /// </summary>
+        P50
+
     }
 }

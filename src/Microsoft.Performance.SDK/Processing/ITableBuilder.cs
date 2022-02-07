@@ -124,6 +124,7 @@ namespace Microsoft.Performance.SDK.Processing
         /// </exception>
         ITableBuilderWithRowCount AddColumn(IDataColumn column);
 
+        ITableBuilderWithRowCount AddColumnWithAggregation(IDataColumnWithAggregation column);
         /// <summary>
         ///     Replaces the given column with another column.
         ///     If the column to replace does not exist, then the

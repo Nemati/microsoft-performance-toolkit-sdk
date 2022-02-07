@@ -50,6 +50,17 @@ namespace Microsoft.Performance.SDK.Processing
             return self.AddColumn(new DataColumn<T>(column, projection));
         }
 
+        public static ITableBuilderWithRowCount AddColumnWithAggregation<T, TAgg>(
+            this ITableBuilderWithRowCount self,
+            ColumnConfiguration column,
+            IProjectionWithCustomAggregation<T, TAgg> projection)
+        {
+            Guard.NotNull(self, nameof(self));
+            Guard.NotNull(projection, nameof(projection));
+
+            return self.AddColumn(new DataColumnWithAggregation<T, TAgg>(column, projection));
+        }
+
         /// <summary>
         ///     Adds a new hierarchical column to the builder with the given
         ///     configuration, projection, and info providers.

@@ -150,6 +150,14 @@ namespace Microsoft.Performance.SDK.Runtime
             return this;
         }
 
+        public ITableBuilderWithRowCount AddColumnWithAggregation(IDataColumnWithAggregation column)
+        {
+            this.columns.Add(column);
+
+            return this;
+        }
+
+
         /// <inheritdoc />
         public ITableBuilderWithRowCount ReplaceColumn(
             IDataColumn oldColumn,

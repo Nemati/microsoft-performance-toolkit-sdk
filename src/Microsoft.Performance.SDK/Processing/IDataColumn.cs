@@ -7,6 +7,18 @@ using System.Collections.Generic;
 namespace Microsoft.Performance.SDK.Processing
 {
     /// <summary>
+    ///     A typed column.
+    /// </summary>
+    public interface IDataColumnWithAggregation
+        : IDataColumn
+    {
+        /// <summary>
+        ///     Gets the configuration of this column.
+        /// </summary>
+        Type AggregationType { get; }
+    }
+
+    /// <summary>
     ///     The core interface for defining a column. A column is a
     ///     projection of data with metadata.
     /// </summary>
@@ -38,6 +50,23 @@ namespace Microsoft.Performance.SDK.Processing
         ///     The projected value at the given row.
         /// </returns>
         object Project(int index);
+    }
+
+    /// <summary>
+    ///     A typed column.
+    /// </summary>
+    /// <typeparam name="T">
+    ///     The <see cref="Type"/> of data projected by the
+    ///     column.
+    /// </typeparam>
+    /// <typeparam name="TAggregate">
+    ///     The <see cref="Type"/> of data projected by the
+    ///     column.
+    /// </typeparam>
+    public interface IDataColumnWithAggregation<T, TAggregate>
+        : IDataColumnWithAggregation,
+          IDataColumn<T>
+    {
     }
 
     /// <summary>

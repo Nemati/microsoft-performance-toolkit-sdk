@@ -5,6 +5,24 @@ using System;
 
 namespace Microsoft.Performance.SDK.Processing
 {
+    public class DataColumnWithAggregation<T, TAggregate>
+        : DataColumn<T>,
+          IDataColumnWithAggregation<T, TAggregate>
+    {
+        public DataColumnWithAggregation(ColumnMetadata metadata, UIHints displayHints,
+            IProjectionWithCustomAggregation<T, TAggregate> projection) : base(metadata, displayHints, projection)
+        {
+        }
+
+        public DataColumnWithAggregation(
+            ColumnConfiguration configuration,
+            IProjectionWithCustomAggregation<T, TAggregate> projection) : base(configuration, projection)
+        {
+        }
+
+        public Type AggregationType => typeof(TAggregate);
+    }
+
     /// <summary>
     ///     Represents a column of data in a table. This class is usable
     ///     on its own, or new columns may be derived.
